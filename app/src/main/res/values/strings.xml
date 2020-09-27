@@ -5,6 +5,7 @@
     <string name="menu_new">New</string>
     <string name="menu_calendar">Calendar</string>
 
+    <string name="new_record_dialog_title">Add New Record</string>
     <string name="hint_company">Company Name</string>
     <string name="hint_position">Position</string>
     <string name="hint_phone">Phone Number (Optional)</string>

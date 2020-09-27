@@ -22,9 +22,7 @@ class RecordListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout and create the binding
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_record_list, container, false)
-        binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        binding = FragmentRecordListBinding.inflate(inflater)
 
         return binding.root
     }

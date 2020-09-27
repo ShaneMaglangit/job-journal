@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".recordlist.RecordListFragment">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.shanemaglangit.jobjournal.recordlist.RecordListViewModel" />
-    </data>
-
-    <LinearLayout
+    <SearchView
+        android:id="@+id/search_filter"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".recordlist.RecordListFragment">
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false" />
 
-        <SearchView
-            android:id="@+id/search_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="false" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_record_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_record_list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
-</layout>
+</LinearLayout>
