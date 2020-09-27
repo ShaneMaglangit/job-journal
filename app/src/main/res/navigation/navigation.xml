@@ -15,4 +15,9 @@
         android:name="com.shanemaglangit.jobjournal.recordlist.RecordListFragment"
         android:label="fragment_record_list"
         tools:layout="@layout/fragment_record_list" />
+    <dialog
+        android:id="@+id/newRecordDialogFragment"
+        android:name="com.shanemaglangit.jobjournal.newrecord.NewRecordDialogFragment"
+        android:label="fragment_new_record_dialog_list_dialog"
+        tools:layout="@layout/fragment_new_record_dialog_list_dialog" />
 </navigation>

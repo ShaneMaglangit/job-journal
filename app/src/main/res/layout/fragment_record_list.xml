@@ -14,11 +14,11 @@
         android:orientation="vertical"
         tools:context=".recordlist.RecordListFragment">
 
-
         <SearchView
             android:id="@+id/search_filter"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_record_list"

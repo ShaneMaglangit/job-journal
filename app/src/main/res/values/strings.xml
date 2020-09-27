@@ -4,4 +4,20 @@
     <string name="menu_list">List</string>
     <string name="menu_new">New</string>
     <string name="menu_calendar">Calendar</string>
+
+    <string name="hint_company">Company Name</string>
+    <string name="hint_position">Position</string>
+    <string name="hint_phone">Phone Number (Optional)</string>
+    <string name="hint_email">Email (Optional)</string>
+    <string name="hint_application_date">Application Date (Optional)</string>
+    <string name="hint_status">Application Status</string>
+    <string name="hint_note">Additional Notes</string>
+    <string name="button_submit">Add</string>
+    
+    <string-array name="application_status_array">
+        <item>Pending</item>
+        <item>Accepted</item>
+        <item>Rejected</item>
+        <item>Canceled</item>
+    </string-array>
 </resources>
