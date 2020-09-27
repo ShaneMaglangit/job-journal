@@ -1,11 +1,11 @@
 package com.shanemaglangit.jobjournal.data
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
+import com.shanemaglangit.jobjournal.util.Converter
 
 @Database(entities = [JobApplication::class], version = 1)
+@TypeConverters(Converter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun appDatabaseDao(): AppDatabaseDao
 
