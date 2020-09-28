@@ -33,7 +33,7 @@
                 android:paddingEnd="16dp"
                 app:contentInsetStartWithNavigation="0dp"
                 app:menu="@menu/new_record_dialog_menu"
-                app:navigationIcon="@drawable/ic_plus"
+                app:navigationIcon="@drawable/ic_clear"
                 app:title="@string/new_record_dialog_title"
                 app:titleTextColor="@android:color/white" />
 
@@ -45,10 +45,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/ic_plus"
+            android:alpha="0.6"
             app:layout_constraintBottom_toBottomOf="@+id/input_layout_company"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_company" />
+            app:layout_constraintTop_toTopOf="@+id/input_layout_company"
+            app:srcCompat="@drawable/ic_building" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_company"
@@ -76,16 +77,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/ic_plus"
+            android:alpha="0.6"
             app:layout_constraintBottom_toBottomOf="@+id/input_layout_position"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_company" />
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_company"
+            app:srcCompat="@drawable/ic_briefcase" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_position"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_position"
@@ -106,16 +109,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/ic_plus"
+            android:alpha="0.6"
             app:layout_constraintBottom_toBottomOf="@+id/input_layout_phone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_phone" />
+            app:layout_constraintTop_toTopOf="@+id/input_layout_phone"
+            app:srcCompat="@drawable/ic_call" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_phone"
@@ -136,16 +141,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/ic_plus"
+            android:alpha="0.6"
             app:layout_constraintBottom_toBottomOf="@+id/input_layout_address"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_address" />
+            app:layout_constraintTop_toTopOf="@+id/input_layout_address"
+            app:srcCompat="@drawable/ic_mail" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_address"
@@ -166,17 +173,21 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/ic_plus"
+            android:alpha="0.6"
             app:layout_constraintBottom_toBottomOf="@+id/input_layout_date"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_date" />
+            app:layout_constraintTop_toTopOf="@+id/input_layout_date"
+            app:srcCompat="@drawable/ic_calendar" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
+            app:endIconCheckable="false"
+            app:endIconDrawable="@drawable/ic_calendar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_date"
             app:layout_constraintTop_toBottomOf="@+id/input_layout_address">
@@ -194,16 +205,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:src="@drawable/ic_plus"
+            android:alpha="0.6"
             app:layout_constraintBottom_toBottomOf="@+id/spinner_application_status"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/spinner_application_status" />
+            app:layout_constraintTop_toTopOf="@+id/spinner_application_status"
+            app:srcCompat="@drawable/ic_star" />
 
         <Spinner
             android:id="@+id/spinner_application_status"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
             android:entries="@array/application_status_array"
             android:paddingStart="6dp"
@@ -220,15 +233,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/ic_plus"
+            android:alpha="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_note" />
+            app:layout_constraintTop_toTopOf="@+id/input_layout_note"
+            app:srcCompat="@drawable/ic_pen" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_note"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_note"
