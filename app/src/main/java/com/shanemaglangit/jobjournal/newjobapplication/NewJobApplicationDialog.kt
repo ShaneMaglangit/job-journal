@@ -1,7 +1,9 @@
 package com.shanemaglangit.jobjournal.newjobapplication
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.DatePicker
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
@@ -9,7 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.databinding.DialogNewJobApplicationBinding
+import com.shanemaglangit.jobjournal.util.showDatePickerDialogOnClick
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class NewJobApplicationDialog : DialogFragment() {
@@ -21,7 +26,8 @@ class NewJobApplicationDialog : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout and create the binding
-        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_new_job_application, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.dialog_new_job_application, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
@@ -30,7 +36,7 @@ class NewJobApplicationDialog : DialogFragment() {
 
         // Add a listener to the add button on the toolbar
         binding.toolbar.setOnMenuItemClickListener {
-            if(it.itemId == R.id.action_save) {
+            if (it.itemId == R.id.action_save) {
                 viewModel.saveJobApplication()
                 this.dismiss()
             }
@@ -55,5 +61,11 @@ class NewJobApplicationDialog : DialogFragment() {
 
         // Add animation for the transition
         dialog?.window?.setWindowAnimations(R.style.AppTheme_Slide);
+
+        // Show a date picker dialog for the date edit text
+        binding.editDate.showDatePickerDialogOnClick { _, year, month, day ->
+            val calendar = Calendar.getInstance().apply { set(year, month, day) }
+            binding.editDate.setText(SimpleDateFormat.getDateInstance().format(calendar.time))
+        }
     }
 }
