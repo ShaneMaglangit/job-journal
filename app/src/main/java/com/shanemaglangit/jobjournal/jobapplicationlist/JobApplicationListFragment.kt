@@ -1,20 +1,18 @@
-package com.shanemaglangit.jobjournal.recordlist
+package com.shanemaglangit.jobjournal.jobapplicationlist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.shanemaglangit.jobjournal.R
-import com.shanemaglangit.jobjournal.databinding.FragmentRecordListBinding
+import com.shanemaglangit.jobjournal.databinding.FragmentJobApplicationListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RecordListFragment : Fragment() {
-    private lateinit var binding: FragmentRecordListBinding
-    private val viewModel : RecordListViewModel by viewModels()
+class JobApplicationListFragment : Fragment() {
+    private lateinit var binding: FragmentJobApplicationListBinding
+    private val viewModel : JobApplicationListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +20,7 @@ class RecordListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout and create the binding
-        binding = FragmentRecordListBinding.inflate(inflater)
+        binding = FragmentJobApplicationListBinding.inflate(inflater)
 
         return binding.root
     }

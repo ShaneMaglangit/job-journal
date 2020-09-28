@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/recordListFragment"
+        android:id="@+id/jobApplicationListFragment"
         android:icon="@drawable/ic_list"
         android:title="@string/menu_list" />
     <item
-        android:id="@+id/newRecordDialogFragment"
+        android:id="@+id/newJobApplicationDialog"
         android:icon="@drawable/ic_plus"
         android:title="@string/menu_new" />
     <item

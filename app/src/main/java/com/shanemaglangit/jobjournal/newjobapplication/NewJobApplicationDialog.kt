@@ -1,33 +1,29 @@
-package com.shanemaglangit.jobjournal.newrecord
+package com.shanemaglangit.jobjournal.newjobapplication
 
-import android.app.Dialog
-import android.os.Build
 import android.os.Bundle
 import android.view.*
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.shanemaglangit.jobjournal.R
-import com.shanemaglangit.jobjournal.databinding.FragmentNewRecordDialogListDialogBinding
+import com.shanemaglangit.jobjournal.databinding.DialogNewJobApplicationBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NewRecordDialogFragment : DialogFragment() {
-    private lateinit var binding: FragmentNewRecordDialogListDialogBinding
-    private val viewModel: NewRecordDialogViewModel by viewModels()
+class NewJobApplicationDialog : DialogFragment() {
+    private lateinit var binding: DialogNewJobApplicationBinding
+    private val viewModel: NewJobApplicationViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout and create the binding
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_record_dialog_list_dialog, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_new_job_application, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        // Add a listener to the home button for the action bar
+        // Add a listener to the home button for the action bar that dismisses the dialog
         binding.toolbar.setNavigationOnClickListener { dialog?.dismiss() }
 
         return binding.root

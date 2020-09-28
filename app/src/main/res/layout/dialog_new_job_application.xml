@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.shanemaglangit.jobjournal.newrecord.NewRecordDialogViewModel" />
+            type="com.shanemaglangit.jobjournal.newjobapplication.NewJobApplicationViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingBottom="8dp"
-        tools:context=".newrecord.NewRecordDialogFragment">
+        tools:context=".newjobapplication.NewJobApplicationDialog">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/header"

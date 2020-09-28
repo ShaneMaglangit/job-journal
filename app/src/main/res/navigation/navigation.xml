@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/recordListFragment">
+    app:startDestination="@id/jobApplicationListFragment">
 
     <fragment
         android:id="@+id/calendarFragment"
@@ -11,13 +11,13 @@
         android:label="fragment_calendar"
         tools:layout="@layout/fragment_calendar" />
     <fragment
-        android:id="@+id/recordListFragment"
-        android:name="com.shanemaglangit.jobjournal.recordlist.RecordListFragment"
+        android:id="@+id/jobApplicationListFragment"
+        android:name="com.shanemaglangit.jobjournal.jobapplicationlist.JobApplicationListFragment"
         android:label="fragment_record_list"
-        tools:layout="@layout/fragment_record_list" />
+        tools:layout="@layout/fragment_job_application_list" />
     <dialog
-        android:id="@+id/newRecordDialogFragment"
-        android:name="com.shanemaglangit.jobjournal.newrecord.NewRecordDialogFragment"
+        android:id="@+id/newJobApplicationDialog"
+        android:name="com.shanemaglangit.jobjournal.newjobapplication.NewJobApplicationDialog"
         android:label="fragment_new_record_dialog_list_dialog"
-        tools:layout="@layout/fragment_new_record_dialog_list_dialog" />
+        tools:layout="@layout/dialog_new_job_application" />
 </navigation>
