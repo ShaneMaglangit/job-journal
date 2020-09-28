@@ -197,6 +197,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_application_date"
+                android:focusableInTouchMode="false"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -211,7 +212,7 @@
             app:layout_constraintTop_toTopOf="@+id/spinner_application_status"
             app:srcCompat="@drawable/ic_star" />
 
-        <Spinner
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinner_application_status"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -223,6 +224,7 @@
             android:paddingTop="16dp"
             android:paddingEnd="6dp"
             android:paddingBottom="16dp"
+            app:applicationStatus="@={viewModel.jobApplication.applicationStatus}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_application_status"
             app:layout_constraintTop_toBottomOf="@+id/input_layout_date" />
