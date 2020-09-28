@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 import java.time.LocalDateTime
 import java.util.*
 
-@Entity
+@Entity(tableName = "job_application_table")
 data class JobApplication(
-    @PrimaryKey val id: Long = 0L,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     var company: String? = null,
     var position: String? = null,
     var phoneNumber: String? = null,

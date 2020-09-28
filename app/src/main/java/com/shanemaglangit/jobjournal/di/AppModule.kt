@@ -18,4 +18,10 @@ object HiltModule {
     fun provideDatabaseDao(@ApplicationContext context: Context) : AppDatabaseDao {
         return AppDatabase.getInstance(context).appDatabaseDao()
     }
+
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context) : AppDatabase {
+        return AppDatabase.getInstance(context)
+    }
 }

@@ -5,6 +5,8 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.databinding.DialogNewJobApplicationBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +26,16 @@ class NewJobApplicationDialog : DialogFragment() {
         binding.viewModel = viewModel
 
         // Add a listener to the home button for the action bar that dismisses the dialog
-        binding.toolbar.setNavigationOnClickListener { dialog?.dismiss() }
+        binding.toolbar.setNavigationOnClickListener { this.dismiss() }
+
+        // Add a listener to the add button on the toolbar
+        binding.toolbar.setOnMenuItemClickListener {
+            if(it.itemId == R.id.action_save) {
+                viewModel.saveJobApplication()
+                this.dismiss()
+            }
+            true
+        }
 
         return binding.root
     }
@@ -41,6 +52,7 @@ class NewJobApplicationDialog : DialogFragment() {
         val width = ViewGroup.LayoutParams.MATCH_PARENT
         val height = ViewGroup.LayoutParams.MATCH_PARENT
         dialog?.window?.setLayout(width, height)
+
         // Add animation for the transition
         dialog?.window?.setWindowAnimations(R.style.AppTheme_Slide);
     }
