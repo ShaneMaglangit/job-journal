@@ -1,8 +1,9 @@
 package com.shanemaglangit.jobjournal.data
 
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import java.time.LocalDateTime
 import java.util.*
 
 @Entity(tableName = "job_application_table")
@@ -15,5 +16,5 @@ data class JobApplication(
     var applicationDate: Date? = null,
     var applicationStatus: ApplicationStatus = ApplicationStatus.PENDING,
     var additionalNotes: String? = null,
-    var dateModified: Date = Date()
+    var dateModified: Date = Date(),
 )

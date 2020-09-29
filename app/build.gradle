@@ -20,7 +20,9 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+                arguments += [
+                    "dagger.hilt.disableModulesHaveInstallInCheck" : "true",
+                    "room.incremental" : "true" ]
             }
         }
     }

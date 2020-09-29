@@ -1,12 +1,20 @@
 package com.shanemaglangit.jobjournal.jobapplicationlist
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.data.JobApplication
 import com.shanemaglangit.jobjournal.databinding.JobApplicationItemBinding
+import com.shanemaglangit.jobjournal.util.Converter
+import com.shanemaglangit.jobjournal.util.formatToString
+import timber.log.Timber
 
 class JobApplicationListAdapter :
     ListAdapter<JobApplication, JobApplicationListAdapter.ViewHolder>(JobApplicationDiffCallback()) {
@@ -32,7 +40,26 @@ class JobApplicationListAdapter :
          */
         fun bind(item: JobApplication) {
             binding.textCompany.text = item.company
-            binding.textDescription.text = "Applied as a ${item.position}"
+            binding.textPosition.text = item.position
+            binding.textDate.text = item.applicationDate?.formatToString()
+            binding.textStatus.text = item.applicationStatus.name.toLowerCase().capitalize()
+            binding.textDescription.text = if(!item.additionalNotes.isNullOrBlank()) item.additionalNotes else "Applied as ${item.position}"
+            binding.textPhone.text = if(!item.phoneNumber.isNullOrBlank()) item.phoneNumber else "No phone number provided"
+            binding.textEmail.text = if(!item.emailAddress.isNullOrBlank()) item.emailAddress else "No email address provided"
+
+            binding.containerConstraint.setOnClickListener {
+                if(binding.containerConstraint.isFocused) binding.containerConstraint.clearFocus()
+            }
+
+            binding.containerConstraint.setOnFocusChangeListener { _, focused ->
+                binding.textDate.visibility = if(focused) View.VISIBLE else View.GONE
+                binding.textEmail.visibility = if(focused) View.VISIBLE else View.GONE
+                binding.textPhone.visibility = if(focused) View.VISIBLE else View.GONE
+                binding.textPosition.visibility = if(focused) View.VISIBLE else View.GONE
+                binding.textStatus.visibility = if(focused) View.VISIBLE else View.GONE
+                binding.buttonDelete.visibility = if(focused) View.VISIBLE else View.GONE
+                binding.buttonEdit.visibility = if(focused) View.VISIBLE else View.GONE
+            }
         }
 
         /**
