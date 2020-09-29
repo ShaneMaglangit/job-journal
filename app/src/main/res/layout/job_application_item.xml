@@ -4,155 +4,183 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container_constraint"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/image_expand"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_constraint"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/text_company"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_triangle" />
+            android:animateLayoutChanges="true">
 
-        <TextView
-            android:id="@+id/text_company"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/image_expand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:clickable="false"
+                app:layout_constraintEnd_toStartOf="@+id/text_company"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_triangle" />
+
+            <TextView
+                android:id="@+id/text_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:clickable="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/image_expand"
+                app:layout_constraintEnd_toStartOf="@+id/text_date"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/image_expand"
+                app:layout_constraintTop_toTopOf="@+id/image_expand"
+                tools:text="ABC Company" />
+
+            <TextView
+                android:id="@+id/text_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="false"
+                app:layout_constraintBottom_toBottomOf="@+id/text_company"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/text_company"
+                app:layout_constraintTop_toTopOf="@+id/text_company"
+                tools:text="11.06.20" />
+
+            <TextView
+                android:id="@+id/text_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:clickable="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_company"
+                app:layout_constraintTop_toBottomOf="@+id/text_company"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Applied as an Intern Software Engineer" />
+
+            <TextView
+                android:id="@+id/text_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="false"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:visibility="gone"
+                app:drawableLeftCompat="@drawable/ic_star"
+                app:drawableTint="@color/lightWhite"
+                app:layout_constraintStart_toStartOf="@+id/text_description"
+                app:layout_constraintTop_toBottomOf="@+id/text_description"
+                tools:text="Pending"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/text_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="false"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:visibility="gone"
+                app:drawableLeftCompat="@drawable/ic_briefcase"
+                app:drawableTint="@color/lightWhite"
+                app:layout_constraintStart_toStartOf="@+id/text_status"
+                app:layout_constraintTop_toBottomOf="@+id/text_status"
+                tools:text="Software Engineer"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="false"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:visibility="gone"
+                app:drawableLeftCompat="@drawable/ic_mail"
+                app:drawableTint="@color/lightWhite"
+                app:layout_constraintStart_toStartOf="@+id/text_position"
+                app:layout_constraintTop_toBottomOf="@+id/text_position"
+                tools:text="email@domain.com"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/text_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="false"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:visibility="gone"
+                app:drawableLeftCompat="@drawable/ic_call"
+                app:drawableTint="@color/lightWhite"
+                app:layout_constraintStart_toStartOf="@+id/text_email"
+                app:layout_constraintTop_toBottomOf="@+id/text_email"
+                tools:text="+63 912 912 9123"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@+id/image_expand"
-            app:layout_constraintEnd_toStartOf="@+id/text_date"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/image_expand"
-            app:layout_constraintTop_toTopOf="@+id/image_expand"
-            tools:text="ABC Company" />
+            android:layout_marginTop="12dp">
 
-        <TextView
-            android:id="@+id/text_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/text_company"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_company"
-            app:layout_constraintTop_toTopOf="@+id/text_company"
-            tools:text="11.06.20" />
+            <Button
+                android:id="@+id/button_edit"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:visibility="gone"
+                android:text="@string/button_edit"
+                app:layout_constraintEnd_toStartOf="@+id/button_delete"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_phone"
+                tools:text="Edit"
+                tools:visibility="visible" />
 
-        <TextView
-            android:id="@+id/text_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_company"
-            app:layout_constraintTop_toBottomOf="@+id/text_company"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="Applied as an Intern Software Engineer" />
-
-        <TextView
-            android:id="@+id/text_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:visibility="gone"
-            app:drawableLeftCompat="@drawable/ic_star"
-            app:layout_constraintStart_toStartOf="@+id/text_description"
-            app:layout_constraintTop_toBottomOf="@+id/text_description"
-            tools:text="Pending"
-            tools:visibility="visible" />
-
-        <TextView
-            android:id="@+id/text_position"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:visibility="gone"
-            app:drawableLeftCompat="@drawable/ic_briefcase"
-            app:layout_constraintStart_toStartOf="@+id/text_status"
-            app:layout_constraintTop_toBottomOf="@+id/text_status"
-            tools:text="Software Engineer"
-            tools:visibility="visible" />
-
-        <TextView
-            android:id="@+id/text_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:visibility="gone"
-            app:drawableLeftCompat="@drawable/ic_mail"
-            app:layout_constraintStart_toStartOf="@+id/text_position"
-            app:layout_constraintTop_toBottomOf="@+id/text_position"
-            tools:text="email@domain.com"
-            tools:visibility="visible" />
-
-        <TextView
-            android:id="@+id/text_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:visibility="gone"
-            app:drawableStartCompat="@drawable/ic_call"
-            app:layout_constraintStart_toStartOf="@+id/text_email"
-            app:layout_constraintTop_toBottomOf="@+id/text_email"
-            tools:text="+63 912 912 9123"
-            tools:visibility="visible" />
-
-        <Button
-            android:id="@+id/button_edit"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="12dp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toStartOf="@+id/button_delete"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_phone"
-            tools:text="Edit"
-            tools:visibility="visible" />
-
-        <Button
-            android:id="@+id/button_delete"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_edit"
-            app:layout_constraintTop_toTopOf="@+id/button_edit"
-            tools:text="Delete"
-            tools:visibility="visible" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/button_delete"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:visibility="gone"
+                android:text="@string/button_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/button_edit"
+                app:layout_constraintTop_toTopOf="@+id/button_edit"
+                tools:text="Delete"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

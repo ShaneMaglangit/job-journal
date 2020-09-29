@@ -48,18 +48,19 @@ class JobApplicationListAdapter :
             binding.textEmail.text = if(!item.emailAddress.isNullOrBlank()) item.emailAddress else "No email address provided"
 
             binding.containerConstraint.setOnClickListener {
-                if(binding.containerConstraint.isFocused) binding.containerConstraint.clearFocus()
+                binding.imageExpand.rotation = if(binding.imageExpand.rotation == 90F) 0F else 90F
+                binding.textDate.toggleVisibility()
+                binding.textEmail.toggleVisibility()
+                binding.textPhone.toggleVisibility()
+                binding.textPosition.toggleVisibility()
+                binding.textStatus.toggleVisibility()
+                binding.buttonDelete.toggleVisibility()
+                binding.buttonEdit.toggleVisibility()
             }
+        }
 
-            binding.containerConstraint.setOnFocusChangeListener { _, focused ->
-                binding.textDate.visibility = if(focused) View.VISIBLE else View.GONE
-                binding.textEmail.visibility = if(focused) View.VISIBLE else View.GONE
-                binding.textPhone.visibility = if(focused) View.VISIBLE else View.GONE
-                binding.textPosition.visibility = if(focused) View.VISIBLE else View.GONE
-                binding.textStatus.visibility = if(focused) View.VISIBLE else View.GONE
-                binding.buttonDelete.visibility = if(focused) View.VISIBLE else View.GONE
-                binding.buttonEdit.visibility = if(focused) View.VISIBLE else View.GONE
-            }
+        private fun View.toggleVisibility() {
+            this.visibility = if(this.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
 
         /**

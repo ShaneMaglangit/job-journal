@@ -14,6 +14,9 @@
     <string name="hint_status">Application Status</string>
     <string name="hint_note">Additional Notes</string>
     <string name="button_submit">Add</string>
+
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
     
     <string-array name="application_status_array">
         <item>Pending</item>
