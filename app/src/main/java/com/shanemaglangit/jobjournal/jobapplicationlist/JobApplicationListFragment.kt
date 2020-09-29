@@ -1,22 +1,22 @@
 package com.shanemaglangit.jobjournal.jobapplicationlist
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shanemaglangit.jobjournal.databinding.FragmentJobApplicationListBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class JobApplicationListFragment : Fragment() {
     private lateinit var binding: FragmentJobApplicationListBinding
     private lateinit var jobApplicationListAdapter: JobApplicationListAdapter
-    private val viewModel : JobApplicationListViewModel by viewModels()
+    private val viewModel: JobApplicationListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +27,12 @@ class JobApplicationListFragment : Fragment() {
         binding = FragmentJobApplicationListBinding.inflate(inflater)
 
         // Set up the recycler view components
-        jobApplicationListAdapter = JobApplicationListAdapter()
+        jobApplicationListAdapter = JobApplicationListAdapter(
+            JobApplicationListItemListener(
+                { Timber.i("Edit clicked") },
+                { viewModel.deleteJobApplication(it) }
+            )
+        )
         binding.recyclerRecordList.adapter = jobApplicationListAdapter
         binding.recyclerRecordList.layoutManager = LinearLayoutManager(requireContext())
 

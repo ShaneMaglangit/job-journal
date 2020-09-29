@@ -17,8 +17,6 @@ class NewJobApplicationViewModel @ViewModelInject constructor(
     val jobApplication = MutableLiveData(JobApplication())
 
     fun saveJobApplication() {
-        viewModelScope.launch {
-            databaseDao.insert(jobApplication.value!!)
-        }
+        viewModelScope.launch { databaseDao.insert(jobApplication.value!!) }
     }
 }
