@@ -1,25 +1,27 @@
 package com.shanemaglangit.jobjournal.newjobapplication
 
-import android.app.DatePickerDialog
 import android.os.Bundle
-import android.view.*
-import android.widget.DatePicker
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.databinding.DialogNewJobApplicationBinding
 import com.shanemaglangit.jobjournal.util.showDatePickerDialogOnClick
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class NewJobApplicationDialog : DialogFragment() {
     private lateinit var binding: DialogNewJobApplicationBinding
     private val viewModel: NewJobApplicationViewModel by viewModels()
+    private val args: NewJobApplicationDialogArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,5 +69,7 @@ class NewJobApplicationDialog : DialogFragment() {
             val calendar = Calendar.getInstance().apply { set(year, month, day) }
             binding.editDate.setText(SimpleDateFormat.getDateInstance().format(calendar.time))
         }
+
+
     }
 }

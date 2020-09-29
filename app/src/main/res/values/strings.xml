@@ -13,7 +13,7 @@
     <string name="hint_application_date">Application Date (Optional)</string>
     <string name="hint_status">Application Status</string>
     <string name="hint_note">Additional Notes</string>
-    <string name="button_submit">Add</string>
+    <string name="button_submit">Save</string>
 
     <string name="button_edit">Edit</string>
     <string name="button_delete">Delete</string>
