@@ -19,7 +19,7 @@ fun getApplicationStatus(view: AppCompatSpinner) : ApplicationStatus {
     return ApplicationStatus.valueOf(view.selectedItem.toString().toUpperCase())
 }
 
-@BindingAdapter("app:applicationStatusAttrChanged")
+@BindingAdapter("applicationStatusAttrChanged")
 fun setApplicationStatusListener(view: AppCompatSpinner, attrChange: InverseBindingListener) {
     view.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
         override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {

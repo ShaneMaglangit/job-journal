@@ -14,10 +14,20 @@
         android:id="@+id/jobApplicationListFragment"
         android:name="com.shanemaglangit.jobjournal.jobapplicationlist.JobApplicationListFragment"
         android:label="fragment_record_list"
-        tools:layout="@layout/fragment_job_application_list" />
+        tools:layout="@layout/fragment_job_application_list" >
+        <action
+            android:id="@+id/openNewJobApplicationDialog"
+            app:destination="@id/newJobApplicationDialog" />
+    </fragment>
     <dialog
         android:id="@+id/newJobApplicationDialog"
         android:name="com.shanemaglangit.jobjournal.newjobapplication.NewJobApplicationDialog"
         android:label="fragment_new_record_dialog_list_dialog"
-        tools:layout="@layout/dialog_new_job_application" />
+        tools:layout="@layout/dialog_new_job_application" >
+        <argument
+            android:name="jobApplication"
+            app:argType="com.shanemaglangit.jobjournal.data.JobApplication"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
 </navigation>

@@ -1,13 +1,14 @@
 package com.shanemaglangit.jobjournal.data
 
-import androidx.lifecycle.MutableLiveData
+import android.os.Parcelable
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
+@Parcelize
 @Entity(tableName = "job_application_table")
-data class JobApplication(
+data class JobApplication (
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     var company: String? = null,
     var position: String? = null,
@@ -17,4 +18,4 @@ data class JobApplication(
     var applicationStatus: ApplicationStatus = ApplicationStatus.PENDING,
     var additionalNotes: String? = null,
     var dateModified: Date = Date(),
-)
+) : Parcelable
