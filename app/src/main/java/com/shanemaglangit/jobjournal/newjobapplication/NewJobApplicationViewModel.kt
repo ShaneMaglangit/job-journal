@@ -2,12 +2,13 @@ package com.shanemaglangit.jobjournal.newjobapplication
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.shanemaglangit.jobjournal.data.AppDatabaseDao
 import com.shanemaglangit.jobjournal.data.JobApplication
-import com.squareup.inject.assisted.AssistedInject
-import kotlinx.coroutines.*
-import timber.log.Timber
+import kotlinx.coroutines.launch
 
 class NewJobApplicationViewModel @ViewModelInject constructor(
     private val databaseDao: AppDatabaseDao,
