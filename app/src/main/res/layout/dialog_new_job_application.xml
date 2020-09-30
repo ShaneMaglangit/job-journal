@@ -9,12 +9,11 @@
             type="com.shanemaglangit.jobjournal.newjobapplication.NewJobApplicationViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="8dp"
-        tools:context=".newjobapplication.NewJobApplicationDialog">
+        tools:context=".newjobapplication.NewJobApplicationDialog" >
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/header"
@@ -39,299 +38,314 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <RadioGroup
-            android:id="@+id/radio_group_marker_color"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/input_layout_company"
-            app:layout_constraintTop_toBottomOf="@+id/header" >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <RadioButton
-                android:id="@+id/radio_pink"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@drawable/ic_marker_selector"
-                android:buttonTint="@color/pastelPink"
-                android:checked="true" />
-
-            <RadioButton
-                android:id="@+id/radio_red"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@drawable/ic_marker_selector"
-                android:buttonTint="@color/pastelRed" />
-
-            <RadioButton
-                android:id="@+id/radio_orange"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@drawable/ic_marker_selector"
-                android:buttonTint="@color/pastelOrange" />
-
-            <RadioButton
-                android:id="@+id/radio_yellow"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@drawable/ic_marker_selector"
-                android:buttonTint="@color/pastelYellow" />
-
-            <RadioButton
-                android:id="@+id/radio_green"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@drawable/ic_marker_selector"
-                android:buttonTint="@color/pastelGreen" />
-
-            <RadioButton
-                android:id="@+id/radio_blue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@drawable/ic_marker_selector"
-                android:buttonTint="@color/pastelBlue" />
-
-            <RadioButton
-                android:id="@+id/radio_violet"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@drawable/ic_marker_selector"
-                android:buttonTint="@color/pastelViolet" />
-
-        </RadioGroup>
-
-        <ImageView
-            android:id="@+id/image_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:alpha="0.6"
-            app:layout_constraintBottom_toBottomOf="@+id/input_layout_company"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_company"
-            app:srcCompat="@drawable/ic_building" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_company"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_company"
-            app:layout_constraintTop_toBottomOf="@+id/radio_group_marker_color">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_company"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_company"
-                android:inputType="text"
-                android:text="@={viewModel.jobApplication.company}" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
 
-        <ImageView
-            android:id="@+id/image_position"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:alpha="0.6"
-            app:layout_constraintBottom_toBottomOf="@+id/input_layout_position"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_company"
-            app:srcCompat="@drawable/ic_briefcase" />
+                <RadioGroup
+                    android:id="@+id/radio_group_marker_color"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/input_layout_company"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_position"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_position"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_company">
+                    <RadioButton
+                        android:id="@+id/radio_pink"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_marker_selector"
+                        android:buttonTint="@color/pastelPink"
+                        android:checked="true" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_position"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_position"
-                android:inputType="text"
-                android:text="@={viewModel.jobApplication.position}" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <RadioButton
+                        android:id="@+id/radio_red"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_marker_selector"
+                        android:buttonTint="@color/pastelRed" />
 
-        <ImageView
-            android:id="@+id/image_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:alpha="0.6"
-            app:layout_constraintBottom_toBottomOf="@+id/input_layout_phone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_phone"
-            app:srcCompat="@drawable/ic_call" />
+                    <RadioButton
+                        android:id="@+id/radio_orange"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_marker_selector"
+                        android:buttonTint="@color/pastelOrange" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_phone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_phone"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_position">
+                    <RadioButton
+                        android:id="@+id/radio_yellow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_marker_selector"
+                        android:buttonTint="@color/pastelYellow" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_phone"
-                android:inputType="number|phone"
-                android:text="@={viewModel.jobApplication.phoneNumber}" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <RadioButton
+                        android:id="@+id/radio_green"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_marker_selector"
+                        android:buttonTint="@color/pastelGreen" />
 
-        <ImageView
-            android:id="@+id/image_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:alpha="0.6"
-            app:layout_constraintBottom_toBottomOf="@+id/input_layout_address"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_address"
-            app:srcCompat="@drawable/ic_mail" />
+                    <RadioButton
+                        android:id="@+id/radio_blue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_marker_selector"
+                        android:buttonTint="@color/pastelBlue" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_address"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_phone">
+                    <RadioButton
+                        android:id="@+id/radio_violet"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_marker_selector"
+                        android:buttonTint="@color/pastelViolet" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_email"
-                android:inputType="textWebEmailAddress|textEmailAddress"
-                android:text="@={viewModel.jobApplication.emailAddress}" />
-        </com.google.android.material.textfield.TextInputLayout>
+                </RadioGroup>
 
-        <ImageView
-            android:id="@+id/image_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:alpha="0.6"
-            app:layout_constraintBottom_toBottomOf="@+id/input_layout_date"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_date"
-            app:srcCompat="@drawable/ic_calendar" />
+                <ImageView
+                    android:id="@+id/image_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:alpha="0.6"
+                    app:layout_constraintBottom_toBottomOf="@+id/input_layout_company"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/input_layout_company"
+                    app:srcCompat="@drawable/ic_building" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_date"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            app:endIconCheckable="false"
-            app:endIconDrawable="@drawable/ic_calendar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_date"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_address">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_company"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_company"
+                    app:layout_constraintTop_toBottomOf="@+id/radio_group_marker_color">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:editable="false"
-                android:focusableInTouchMode="false"
-                android:hint="@string/hint_application_date"
-                android:inputType="date" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_company"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_company"
+                        android:inputType="text"
+                        android:text="@={viewModel.jobApplication.company}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageView
-            android:id="@+id/image_application_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:alpha="0.6"
-            app:layout_constraintBottom_toBottomOf="@+id/spinner_application_status"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/spinner_application_status"
-            app:srcCompat="@drawable/ic_star" />
+                <ImageView
+                    android:id="@+id/image_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:alpha="0.6"
+                    app:layout_constraintBottom_toBottomOf="@+id/input_layout_position"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_layout_company"
+                    app:srcCompat="@drawable/ic_briefcase" />
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/spinner_application_status"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            android:entries="@array/application_status_array"
-            android:paddingStart="6dp"
-            android:paddingTop="16dp"
-            android:paddingEnd="6dp"
-            android:paddingBottom="16dp"
-            app:applicationStatus="@={viewModel.jobApplication.applicationStatus}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_application_status"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_date" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_position"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_position"
+                    app:layout_constraintTop_toBottomOf="@+id/input_layout_company">
 
-        <ImageView
-            android:id="@+id/image_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:alpha="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/input_layout_note"
-            app:srcCompat="@drawable/ic_pen" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_position"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_position"
+                        android:inputType="text"
+                        android:text="@={viewModel.jobApplication.position}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_note"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_note"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_application_status">
+                <ImageView
+                    android:id="@+id/image_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:alpha="0.6"
+                    app:layout_constraintBottom_toBottomOf="@+id/input_layout_phone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/input_layout_phone"
+                    app:srcCompat="@drawable/ic_call" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_note"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:hint="@string/hint_note"
-                android:inputType="textMultiLine|text"
-                android:minLines="4"
-                android:text="@={viewModel.jobApplication.additionalNotes}" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/input_layout_position">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_phone"
+                        android:inputType="number|phone"
+                        android:text="@={viewModel.jobApplication.phoneNumber}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/image_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:alpha="0.6"
+                    app:layout_constraintBottom_toBottomOf="@+id/input_layout_address"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/input_layout_address"
+                    app:srcCompat="@drawable/ic_mail" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_address"
+                    app:layout_constraintTop_toBottomOf="@+id/input_layout_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_email"
+                        android:inputType="textWebEmailAddress|textEmailAddress"
+                        android:text="@={viewModel.jobApplication.emailAddress}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/image_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:alpha="0.6"
+                    app:layout_constraintBottom_toBottomOf="@+id/input_layout_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/input_layout_date"
+                    app:srcCompat="@drawable/ic_calendar" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    app:endIconCheckable="false"
+                    app:endIconDrawable="@drawable/ic_calendar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_date"
+                    app:layout_constraintTop_toBottomOf="@+id/input_layout_address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/hint_application_date"
+                        android:inputType="date" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/image_application_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:alpha="0.6"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinner_application_status"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/spinner_application_status"
+                    app:srcCompat="@drawable/ic_star" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_application_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:entries="@array/application_status_array"
+                    android:paddingStart="6dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="6dp"
+                    android:paddingBottom="16dp"
+                    app:applicationStatus="@={viewModel.jobApplication.applicationStatus}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_application_status"
+                    app:layout_constraintTop_toBottomOf="@+id/input_layout_date" />
+
+                <ImageView
+                    android:id="@+id/image_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:alpha="0.6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/input_layout_note"
+                    app:srcCompat="@drawable/ic_pen" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_note"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/image_note"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_application_status">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_note"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:hint="@string/hint_note"
+                        android:inputType="textMultiLine|text"
+                        android:minLines="4"
+                        android:text="@={viewModel.jobApplication.additionalNotes}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
 </layout>
