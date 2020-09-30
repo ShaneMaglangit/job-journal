@@ -16,5 +16,8 @@ class NewJobApplicationViewModel @ViewModelInject constructor(
 ) : ViewModel() {
     val jobApplication = MutableLiveData(savedStateHandle.get("jobApplication") ?: JobApplication())
 
-    fun saveJobApplication() = viewModelScope.launch { databaseDao.insert(jobApplication.value!!) }
+    fun saveJobApplication() = viewModelScope.launch {
+        jobApplication.value!!.updateDateModified()
+        databaseDao.insert(jobApplication.value!!)
+    }
 }

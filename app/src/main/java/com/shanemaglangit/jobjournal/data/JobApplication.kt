@@ -17,6 +17,8 @@ data class JobApplication (
     var applicationDate: Date? = null,
     var applicationStatus: ApplicationStatus = ApplicationStatus.PENDING,
     var additionalNotes: String? = null,
-    var dateModified: Date = Date(),
+    var dateModified: Date = Date(System.currentTimeMillis()),
     var markerColor: MarkerColor = MarkerColor.PINK
-) : Parcelable
+) : Parcelable {
+    fun updateDateModified() { this.dateModified = Date(System.currentTimeMillis()) }
+}

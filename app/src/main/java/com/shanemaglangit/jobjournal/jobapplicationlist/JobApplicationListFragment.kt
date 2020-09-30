@@ -30,7 +30,7 @@ class JobApplicationListFragment : Fragment() {
         // Set up the recycler view components
         jobApplicationListAdapter = JobApplicationListAdapter(
             JobApplicationListItemListener(
-                { findNavController().navigate(JobApplicationListFragmentDirections.openNewJobApplicationDialog(it)) },
+                { findNavController().navigate(JobApplicationListFragmentDirections.openNewJobApplicationDialog(it.copy())) },
                 { viewModel.deleteJobApplication(it) }
             )
         )

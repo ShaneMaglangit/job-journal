@@ -12,6 +12,6 @@ interface AppDatabaseDao {
     @Delete
     suspend fun delete(jobApplication: JobApplication)
 
-    @Query("SELECT * FROM job_application_table")
+    @Query("SELECT * FROM job_application_table ORDER BY dateModified DESC")
     fun getAllJobApplication() : LiveData<List<JobApplication>>
 }

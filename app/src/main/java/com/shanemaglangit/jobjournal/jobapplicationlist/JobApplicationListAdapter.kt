@@ -12,6 +12,7 @@ import com.shanemaglangit.jobjournal.data.JobApplication
 import com.shanemaglangit.jobjournal.data.MarkerColor
 import com.shanemaglangit.jobjournal.databinding.JobApplicationItemBinding
 import com.shanemaglangit.jobjournal.util.formatToString
+import timber.log.Timber
 
 class JobApplicationListAdapter(private val itemClickListener: JobApplicationListItemListener) :
     ListAdapter<JobApplication, JobApplicationListAdapter.ViewHolder>(JobApplicationDiffCallback()) {
@@ -28,6 +29,16 @@ class JobApplicationListAdapter(private val itemClickListener: JobApplicationLis
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
+
+//    override fun submitList(list: MutableList<JobApplication>?) {
+//        super.submitList(list)
+////        notifyDataSetChanged()
+//    }
+//
+//    override fun submitList(list: MutableList<JobApplication>?, commitCallback: Runnable?) {
+//        super.submitList(list, commitCallback)
+////        notifyDataSetChanged()
+//    }
 
     class ViewHolder private constructor(private val binding: JobApplicationItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
