@@ -2,6 +2,7 @@ package com.shanemaglangit.jobjournal.util
 
 import androidx.room.TypeConverter
 import com.shanemaglangit.jobjournal.data.ApplicationStatus
+import com.shanemaglangit.jobjournal.jobapplicationlist.MarkerColor
 import java.util.*
 
 class Converter {
@@ -23,5 +24,15 @@ class Converter {
     @TypeConverter
     fun applicationStatusToString(applicationStatus: ApplicationStatus) : String? {
         return applicationStatus.toString()
+    }
+
+    @TypeConverter
+    fun fromMarkerColor(value: String?) : MarkerColor? {
+        return value?.let { MarkerColor.valueOf(it) }
+    }
+
+    @TypeConverter
+    fun markerColorToString(markerColor: MarkerColor) : String? {
+        return markerColor.toString()
     }
 }
