@@ -3,12 +3,10 @@ package com.shanemaglangit.jobjournal.di
 import android.content.Context
 import com.shanemaglangit.jobjournal.data.AppDatabase
 import com.shanemaglangit.jobjournal.data.AppDatabaseDao
-import com.squareup.inject.assisted.dagger2.AssistedModule
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
