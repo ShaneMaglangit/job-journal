@@ -3,7 +3,6 @@ package com.shanemaglangit.jobjournal.data
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.shanemaglangit.jobjournal.jobapplicationlist.MarkerColor
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 

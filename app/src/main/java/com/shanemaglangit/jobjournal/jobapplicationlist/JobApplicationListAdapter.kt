@@ -1,7 +1,5 @@
 package com.shanemaglangit.jobjournal.jobapplicationlist
 
-import android.content.res.ColorStateList
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.data.JobApplication
+import com.shanemaglangit.jobjournal.data.MarkerColor
 import com.shanemaglangit.jobjournal.databinding.JobApplicationItemBinding
 import com.shanemaglangit.jobjournal.util.formatToString
 
@@ -37,19 +36,6 @@ class JobApplicationListAdapter(private val itemClickListener: JobApplicationLis
          * Binds the items to the view holder
          */
         fun bind(item: JobApplication, itemClickListener: JobApplicationListItemListener) {
-            // Set the color of the marker
-            val markerColorId = when(item.markerColor) {
-                MarkerColor.PINK -> R.color.pastelPink
-                MarkerColor.RED -> R.color.pastelRed
-                MarkerColor.ORANGE -> R.color.pastelOrange
-                MarkerColor.YELLOW -> R.color.pastelYellow
-                MarkerColor.GREEN -> R.color.pastelGreen
-                MarkerColor.BLUE -> R.color.pastelBlue
-                MarkerColor.VIOLET -> R.color.pastelViolet
-            }
-
-            binding.imageExpand.setColorFilter(ContextCompat.getColor(binding.root.context, markerColorId))
-
             // Put the contents of the item to the views
             binding.textCompany.text = item.company
             binding.textPosition.text = item.position
@@ -61,6 +47,9 @@ class JobApplicationListAdapter(private val itemClickListener: JobApplicationLis
                 if (!item.phoneNumber.isNullOrBlank()) item.phoneNumber else "No phone number provided"
             binding.textEmail.text =
                 if (!item.emailAddress.isNullOrBlank()) item.emailAddress else "No email address provided"
+
+            // Set the color of the marker
+            binding.imageExpand.setColorFilter(MarkerColor.getColor(binding.root.context, item.markerColor))
 
             // Expands the view to show the hidden details of the card
             binding.containerConstraint.setOnClickListener {

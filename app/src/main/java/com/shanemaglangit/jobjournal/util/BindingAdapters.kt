@@ -1,17 +1,15 @@
 package com.shanemaglangit.jobjournal.util
 
-import android.provider.MediaStore
 import android.view.View
 import android.widget.AdapterView
 import android.widget.RadioGroup
-import android.widget.Spinner
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.data.ApplicationStatus
-import com.shanemaglangit.jobjournal.jobapplicationlist.MarkerColor
+import com.shanemaglangit.jobjournal.data.MarkerColor
 
 @BindingAdapter("applicationStatus")
 fun setApplicationStatus(view: AppCompatSpinner, value: ApplicationStatus) {

@@ -2,7 +2,7 @@ package com.shanemaglangit.jobjournal.util
 
 import androidx.room.TypeConverter
 import com.shanemaglangit.jobjournal.data.ApplicationStatus
-import com.shanemaglangit.jobjournal.jobapplicationlist.MarkerColor
+import com.shanemaglangit.jobjournal.data.MarkerColor
 import java.util.*
 
 class Converter {
