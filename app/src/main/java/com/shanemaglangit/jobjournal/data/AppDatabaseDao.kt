@@ -14,4 +14,7 @@ interface AppDatabaseDao {
 
     @Query("SELECT * FROM job_application_table ORDER BY dateModified DESC")
     fun getAllJobApplication(): LiveData<List<JobApplication>>
+
+    @Query("SELECT * FROM job_application_table WHERE id = :id")
+    suspend fun getJobApplicationById(id: Long) : JobApplication
 }

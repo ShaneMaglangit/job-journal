@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
+import java.sql.Timestamp
 import java.util.*
 
 @Parcelize
@@ -18,7 +19,8 @@ data class JobApplication (
     var applicationStatus: ApplicationStatus = ApplicationStatus.PENDING,
     var additionalNotes: String? = null,
     var dateModified: Date = Date(System.currentTimeMillis()),
-    var markerColor: MarkerColor = MarkerColor.PINK
+    var markerColor: MarkerColor = MarkerColor.PINK,
+    var statusChanges: HashMap<Date, String> = hashMapOf()
 ) : Parcelable {
     fun updateDateModified() { this.dateModified = Date(System.currentTimeMillis()) }
 }

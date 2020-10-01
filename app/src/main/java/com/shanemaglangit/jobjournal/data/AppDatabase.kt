@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.*
 import com.shanemaglangit.jobjournal.util.Converter
 
-@Database(entities = [JobApplication::class, ActionHistory::class], version = 4, exportSchema = false)
+@Database(entities = [JobApplication::class], version = 5, exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun appDatabaseDao(): AppDatabaseDao

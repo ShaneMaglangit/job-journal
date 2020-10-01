@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.shanemaglangit.jobjournal.data.AppDatabaseDao
 import com.shanemaglangit.jobjournal.data.JobApplication
 import kotlinx.coroutines.launch
+import java.util.*
 
 class NewJobApplicationViewModel @ViewModelInject constructor(
     private val databaseDao: AppDatabaseDao,
@@ -17,7 +18,14 @@ class NewJobApplicationViewModel @ViewModelInject constructor(
     val jobApplication = MutableLiveData(savedStateHandle.get("jobApplication") ?: JobApplication())
 
     fun saveJobApplication() = viewModelScope.launch {
-        jobApplication.value!!.updateDateModified()
+        val oldItem: JobApplication? = savedStateHandle.get("jobApplication")
+        val currentItem = jobApplication.value!!
+
+        if (oldItem == null || oldItem.applicationStatus != currentItem.applicationStatus) {
+            currentItem.statusChanges[Date(System.currentTimeMillis())] =
+                "Marked application to ${currentItem.applicationStatus} as ${currentItem.applicationStatus}"
+        }
+
         databaseDao.insert(jobApplication.value!!)
     }
 }
