@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.shanemaglangit.jobjournal.data.AppDatabaseDao
 import com.shanemaglangit.jobjournal.data.JobApplication
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 import java.util.*
 
 class NewJobApplicationViewModel @ViewModelInject constructor(
@@ -22,7 +23,7 @@ class NewJobApplicationViewModel @ViewModelInject constructor(
         val currentItem = jobApplication.value!!
 
         if (oldItem == null || oldItem.applicationStatus != currentItem.applicationStatus) {
-            currentItem.statusChanges[Date(System.currentTimeMillis())] =
+            currentItem.statusChanges[LocalDate.now()] =
                 "Marked application to ${currentItem.applicationStatus} as ${currentItem.applicationStatus}"
         }
 

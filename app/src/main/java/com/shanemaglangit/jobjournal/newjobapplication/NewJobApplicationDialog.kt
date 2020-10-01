@@ -70,6 +70,5 @@ class NewJobApplicationDialog : DialogFragment() {
             binding.editDate.setText(SimpleDateFormat.getDateInstance().format(calendar.time))
         }
 
-
     }
 }

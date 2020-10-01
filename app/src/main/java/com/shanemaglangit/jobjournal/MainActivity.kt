@@ -2,11 +2,14 @@ package com.shanemaglangit.jobjournal
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.format.DateUtils
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.shanemaglangit.jobjournal.data.AppDatabase
 import com.shanemaglangit.jobjournal.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
+import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -22,5 +25,9 @@ class MainActivity : AppCompatActivity() {
         // Attach the navigation controller to the botton navigation view
         val navHost = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         NavigationUI.setupWithNavController(binding.bottomNav, navHost.navController)
+    }
+
+    override fun onStart() {
+        super.onStart()
     }
 }

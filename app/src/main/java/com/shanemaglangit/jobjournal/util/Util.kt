@@ -3,7 +3,9 @@ package com.shanemaglangit.jobjournal.util
 import android.app.DatePickerDialog
 import android.os.Build
 import android.view.View
+import com.shanemaglangit.jobjournal.data.JobApplication
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 fun View.showDatePickerDialogOnClick(dateSetListener: DatePickerDialog.OnDateSetListener) {
@@ -15,6 +17,6 @@ fun View.showDatePickerDialogOnClick(dateSetListener: DatePickerDialog.OnDateSet
     this.setOnClickListener { datePickerDialog.show() }
 }
 
-fun Date.formatToString() : String {
+fun LocalDate.formatToString() : String {
     return SimpleDateFormat("mm.dd.yy").format(this)
 }
