@@ -10,15 +10,12 @@
 
     <TextView
         android:id="@+id/calendar_month_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:letterSpacing="0.05"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="January" />
@@ -127,5 +124,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/text_friday"
         app:layout_constraintTop_toTopOf="@+id/text_friday" />
+
+    <TextView
+        android:id="@+id/text_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:alpha="0.8"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/calendar_month_text"
+        app:layout_constraintStart_toEndOf="@+id/calendar_month_text"
+        tools:text="2020" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

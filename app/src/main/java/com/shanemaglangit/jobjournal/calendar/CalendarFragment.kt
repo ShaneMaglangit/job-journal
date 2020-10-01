@@ -52,6 +52,7 @@ class CalendarFragment : Fragment() {
             // Method invoked when the containers are reused
             override fun bind(container: MonthViewContainer, month: CalendarMonth) {
                 container.monthName.text = month.yearMonth.month.name.toLowerCase().capitalize()
+                container.year.text = month.year.toString()
             }
         }
 
@@ -63,8 +64,8 @@ class CalendarFragment : Fragment() {
 
         // Update the calendar to the current date
         val currentMonth = YearMonth.now()
-        val firstMonth = currentMonth.minusMonths(10)
-        val lastMonth = currentMonth.plusMonths(10)
+        val firstMonth = currentMonth.minusYears(20)
+        val lastMonth = currentMonth.plusYears(20)
         val firstDayOfWeek = WeekFields.of(Locale.getDefault()).firstDayOfWeek
 
         binding.calendar.setup(firstMonth, lastMonth, firstDayOfWeek)

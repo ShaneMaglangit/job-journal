@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -43,8 +44,20 @@ class JobApplicationListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        binding.searchFilter.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.filterItems(query)
+                return true
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                if(query.isNullOrEmpty()) viewModel.filterItems(null)
+                return true
+            }
+        })
+
         // Attach an observer that updates the recycler view items
-        viewModel.jobApplication.observe(viewLifecycleOwner, Observer {
+        viewModel.filteredJobApplication.observe(viewLifecycleOwner, Observer {
             jobApplicationListAdapter.submitList(it)
         })
     }

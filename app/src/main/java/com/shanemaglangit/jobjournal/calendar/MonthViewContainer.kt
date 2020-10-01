@@ -8,4 +8,5 @@ import com.shanemaglangit.jobjournal.databinding.CalendarMonthLayoutBinding
 class MonthViewContainer(view: View) : ViewContainer(view) {
     val binding = CalendarMonthLayoutBinding.bind(view)
     val monthName = binding.calendarMonthText
+    val year = binding.textYear
 }
