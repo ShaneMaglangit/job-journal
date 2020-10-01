@@ -17,6 +17,14 @@
 
     <string name="button_edit">Edit</string>
     <string name="button_delete">Delete</string>
+
+    <string name="month_day_sunday">S</string>
+    <string name="month_day_monday">M</string>
+    <string name="month_day_tuesday">T</string>
+    <string name="month_day_wednesday">W</string>
+    <string name="month_day_thursday">T</string>
+    <string name="month_day_friday">F</string>
+    <string name="month_day_saturday">S</string>
     
     <string-array name="application_status_array">
         <item>Pending</item>

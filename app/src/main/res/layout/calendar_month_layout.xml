@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/calendar_month_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="MONTH" />
+
+    <TextView
+        android:id="@+id/text_sunday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/month_day_sunday"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/text_monday"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_month_text" />
+
+    <TextView
+        android:id="@+id/text_monday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/month_day_monday"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_sunday"
+        app:layout_constraintEnd_toStartOf="@+id/text_tuesday"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_sunday"
+        app:layout_constraintTop_toTopOf="@+id/text_sunday" />
+
+    <TextView
+        android:id="@+id/text_tuesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/month_day_tuesday"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_monday"
+        app:layout_constraintEnd_toStartOf="@+id/text_wednesday"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_monday"
+        app:layout_constraintTop_toTopOf="@+id/text_monday" />
+
+    <TextView
+        android:id="@+id/text_wednesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/month_day_wednesday"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_tuesday"
+        app:layout_constraintEnd_toStartOf="@+id/text_thursday"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_tuesday"
+        app:layout_constraintTop_toTopOf="@+id/text_tuesday" />
+
+    <TextView
+        android:id="@+id/text_thursday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/month_day_thursday"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_wednesday"
+        app:layout_constraintEnd_toStartOf="@+id/text_friday"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_wednesday"
+        app:layout_constraintTop_toTopOf="@+id/text_wednesday" />
+
+    <TextView
+        android:id="@+id/text_friday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/month_day_friday"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_thursday"
+        app:layout_constraintEnd_toStartOf="@+id/text_saturday"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_thursday"
+        app:layout_constraintTop_toTopOf="@+id/text_thursday" />
+
+    <TextView
+        android:id="@+id/text_saturday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/month_day_saturday"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_friday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_friday"
+        app:layout_constraintTop_toTopOf="@+id/text_friday" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
