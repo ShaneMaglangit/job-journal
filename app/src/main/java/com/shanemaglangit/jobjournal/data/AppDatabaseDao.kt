@@ -19,6 +19,6 @@ interface AppDatabaseDao {
     @Query("SELECT * FROM job_application_table WHERE id = :id")
     suspend fun getJobApplicationById(id: Long) : JobApplication
 
-    @Query("SELECT DISTINCT applicationDate FROM job_application_table")
-    suspend fun getJobApplicationDates() : LiveData<List<Date>>
+    @Query("SELECT applicationDate, statusChanges FROM job_application_table")
+    suspend fun getApplicationActions() : List<ApplicationActions>
 }
