@@ -24,9 +24,10 @@ class NewJobApplicationViewModel @ViewModelInject constructor(
 
         if (oldItem == null || oldItem.applicationStatus != currentItem.applicationStatus) {
             currentItem.statusChanges[LocalDate.now()] =
-                "Marked application to ${currentItem.applicationStatus} as ${currentItem.applicationStatus}"
+                "Marked application to ${currentItem.company} as ${currentItem.applicationStatus}"
         }
 
-        databaseDao.insert(jobApplication.value!!)
+        currentItem.updateDateModified()
+        databaseDao.insert(currentItem)
     }
 }

@@ -3,6 +3,7 @@ package com.shanemaglangit.jobjournal.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.*
+import java.util.*
 
 @Dao
 interface AppDatabaseDao {
@@ -17,4 +18,7 @@ interface AppDatabaseDao {
 
     @Query("SELECT * FROM job_application_table WHERE id = :id")
     suspend fun getJobApplicationById(id: Long) : JobApplication
+
+    @Query("SELECT DISTINCT applicationDate FROM job_application_table")
+    suspend fun getJobApplicationDates() : LiveData<List<Date>>
 }
