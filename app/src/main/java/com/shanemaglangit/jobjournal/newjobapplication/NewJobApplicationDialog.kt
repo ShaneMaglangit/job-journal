@@ -13,15 +13,17 @@ import com.shanemaglangit.jobjournal.databinding.DialogNewJobApplicationBinding
 import com.shanemaglangit.jobjournal.util.showDatePickerDialogOnClick
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 import java.util.*
 import javax.inject.Inject
-
 
 @AndroidEntryPoint
 class NewJobApplicationDialog : DialogFragment() {
     private lateinit var binding: DialogNewJobApplicationBinding
     private val viewModel: NewJobApplicationViewModel by viewModels()
-    private val args: NewJobApplicationDialogArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,7 +70,7 @@ class NewJobApplicationDialog : DialogFragment() {
         binding.editDate.showDatePickerDialogOnClick { _, year, month, day ->
             val calendar = Calendar.getInstance().apply { set(year, month, day) }
             binding.editDate.setText(SimpleDateFormat.getDateInstance().format(calendar.time))
+            viewModel.setApplicationDate(LocalDateTime.ofInstant(calendar.toInstant(), ZoneOffset.UTC).toLocalDate())
         }
-
     }
 }

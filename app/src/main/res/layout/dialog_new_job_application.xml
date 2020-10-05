@@ -277,10 +277,10 @@
                         android:id="@+id/edit_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="false"
                         android:focusableInTouchMode="false"
                         android:hint="@string/hint_application_date"
-                        android:inputType="date" />
+                        android:text="@{viewModel.jobApplication.applicationDate}"
+                        android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageView

@@ -5,7 +5,11 @@ import android.os.Build
 import android.view.View
 import com.shanemaglangit.jobjournal.data.JobApplication
 import java.text.SimpleDateFormat
+import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 fun View.showDatePickerDialogOnClick(dateSetListener: DatePickerDialog.OnDateSetListener) {
@@ -18,5 +22,11 @@ fun View.showDatePickerDialogOnClick(dateSetListener: DatePickerDialog.OnDateSet
 }
 
 fun LocalDate.formatToString() : String {
-    return SimpleDateFormat("mm.dd.yy").format(this)
+    val date = Date.from(this.atStartOfDay().toInstant(ZoneOffset.UTC))
+    return SimpleDateFormat("MM.dd.yy").format(date)
+}
+
+fun LocalDate.formatToDateInstance() : String {
+    val date = Date.from(this.atStartOfDay().toInstant(ZoneOffset.UTC))
+    return SimpleDateFormat.getDateInstance().format(date)
 }

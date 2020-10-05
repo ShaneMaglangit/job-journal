@@ -2,14 +2,21 @@ package com.shanemaglangit.jobjournal.util
 
 import android.view.View
 import android.widget.AdapterView
+import android.widget.EditText
 import android.widget.RadioGroup
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
+import androidx.databinding.InverseMethod
+import com.google.android.material.textfield.TextInputEditText
 import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.data.ApplicationStatus
 import com.shanemaglangit.jobjournal.data.MarkerColor
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneOffset
+import java.util.*
 
 @BindingAdapter("applicationStatus")
 fun setApplicationStatus(view: AppCompatSpinner, value: ApplicationStatus) {
@@ -63,4 +70,12 @@ fun getSelectedMarkerColor(view: RadioGroup) : MarkerColor {
 @BindingAdapter("selectedMarkerColorAttrChanged")
 fun setSelectedMarkerColorListener(view: RadioGroup, attrChange: InverseBindingListener) {
     view.setOnCheckedChangeListener { _, _ ->  attrChange.onChange() }
+}
+
+@BindingAdapter("android:text")
+fun setText(view: TextInputEditText, value: LocalDate?) {
+    if(value != null) {
+        val dateString = value.formatToDateInstance()
+        if(dateString != view.text.toString()) view.setText(value.formatToDateInstance())
+    }
 }

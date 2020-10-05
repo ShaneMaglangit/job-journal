@@ -57,7 +57,7 @@ class JobApplicationListFragment : Fragment() {
         })
 
         // Attach an observer that updates the recycler view items
-        viewModel.filteredJobApplication.observe(viewLifecycleOwner, Observer {
+        viewModel.filteredJobApplication.observe(viewLifecycleOwner, {
             jobApplicationListAdapter.submitList(it)
         })
     }

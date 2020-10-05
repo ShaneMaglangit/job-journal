@@ -30,16 +30,6 @@ class JobApplicationListAdapter(private val itemClickListener: JobApplicationLis
         return ViewHolder.from(parent)
     }
 
-//    override fun submitList(list: MutableList<JobApplication>?) {
-//        super.submitList(list)
-////        notifyDataSetChanged()
-//    }
-//
-//    override fun submitList(list: MutableList<JobApplication>?, commitCallback: Runnable?) {
-//        super.submitList(list, commitCallback)
-////        notifyDataSetChanged()
-//    }
-
     class ViewHolder private constructor(private val binding: JobApplicationItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -65,7 +55,6 @@ class JobApplicationListAdapter(private val itemClickListener: JobApplicationLis
             // Expands the view to show the hidden details of the card
             binding.containerConstraint.setOnClickListener {
                 binding.imageExpand.rotation = if (binding.imageExpand.rotation == 90F) 0F else 90F
-                binding.textDate.toggleVisibility()
                 binding.textEmail.toggleVisibility()
                 binding.textPhone.toggleVisibility()
                 binding.textPosition.toggleVisibility()
