@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.shanemaglangit.jobjournal.R
 import com.shanemaglangit.jobjournal.databinding.FragmentJobApplicationListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -31,7 +32,15 @@ class JobApplicationListFragment : Fragment() {
         // Set up the recycler view components
         jobApplicationListAdapter = JobApplicationListAdapter(
             JobApplicationListItemListener(
-                { findNavController().navigate(JobApplicationListFragmentDirections.openNewJobApplicationDialog(it.copy())) },
+                {
+                    if(findNavController().currentDestination?.id == R.id.jobApplicationListFragment) {
+                        findNavController().navigate(
+                            JobApplicationListFragmentDirections.openNewJobApplicationDialog(
+                                it.copy()
+                            )
+                        )
+                    }
+                },
                 { viewModel.deleteJobApplication(it) }
             )
         )
