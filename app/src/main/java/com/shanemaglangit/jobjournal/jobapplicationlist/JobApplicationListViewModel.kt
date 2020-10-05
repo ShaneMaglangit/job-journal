@@ -33,9 +33,9 @@ class JobApplicationListViewModel @ViewModelInject constructor(
         _filteredJobApplication.value = when (this.filter) {
             null, "" -> jobApplication.value
             else -> jobApplication.value!!.filter { e ->
-                e.company!!.contains(filter.toString()) ||
-                e.position!!.contains(filter.toString()) ||
-                e.additionalNotes?.contains(filter.toString()) ?: false
+                e.company!!.contains(filter.toString(), true) ||
+                e.position!!.contains(filter.toString(), true) ||
+                e.additionalNotes?.contains(filter.toString(), true) ?: false
             }
         }
     }
