@@ -6,7 +6,7 @@
         android:title="@string/menu_list" />
     <item
         android:id="@+id/newJobApplicationDialog"
-        android:icon="@drawable/ic_plus"
+        android:icon="@drawable/ic_plus_circle"
         android:title="@string/menu_new" />
     <item
         android:icon="@drawable/ic_calendar"

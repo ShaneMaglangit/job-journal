@@ -11,11 +11,13 @@ import android.widget.TextView
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.model.CalendarMonth
 import com.kizitonwose.calendarview.model.DayOwner
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.MonthHeaderFooterBinder
+import com.kizitonwose.calendarview.ui.MonthScrollListener
 import com.shanemaglangit.jobjournal.databinding.FragmentCalendarBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_calendar.*
@@ -27,6 +29,7 @@ import java.util.*
 @AndroidEntryPoint
 class CalendarFragment : Fragment() {
     private lateinit var binding: FragmentCalendarBinding
+    private lateinit var applicationActionListAdapter: ApplicationActionListAdapter
     private val viewModel: CalendarViewModel by viewModels()
 
     override fun onCreateView(
@@ -34,6 +37,11 @@ class CalendarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCalendarBinding.inflate(inflater)
+
+        // Set up the recycler view components
+        applicationActionListAdapter = ApplicationActionListAdapter()
+        binding.recyclerApplicationActions.adapter = applicationActionListAdapter
+        binding.recyclerApplicationActions.layoutManager = LinearLayoutManager(requireContext())
 
         // Binder for the layout container of the day
         binding.calendar.dayBinder = object : DayBinder<DayViewContainer> {
@@ -66,7 +74,6 @@ class CalendarFragment : Fragment() {
                         setTextColor(Color.LTGRAY)
                     }
                 }
-                Timber.i("Updating ${day.date} : $actionCount")
             }
         }
 
@@ -79,6 +86,13 @@ class CalendarFragment : Fragment() {
             override fun bind(container: MonthViewContainer, month: CalendarMonth) {
                 container.monthName.text = month.yearMonth.month.name.toLowerCase().capitalize()
                 container.year.text = month.year.toString()
+            }
+        }
+
+        binding.calendar.monthScrollListener = object: MonthScrollListener {
+            override fun invoke(month: CalendarMonth) {
+                val applicationActionList = viewModel.getApplicationActionsByMonth(month)
+                applicationActionListAdapter.submitList(applicationActionList)
             }
         }
 
@@ -99,8 +113,8 @@ class CalendarFragment : Fragment() {
 
         // Refresh the calendar once the data are loaded
         viewModel.applicationActions.observe(viewLifecycleOwner, {
-            Timber.i("Calendar changed")
             binding.calendar.notifyCalendarChanged()
+            binding.calendar.monthScrollListener?.invoke(binding.calendar.findFirstVisibleMonth()!!)
         })
     }
 }

@@ -25,6 +25,8 @@
     <string name="month_day_thursday">T</string>
     <string name="month_day_friday">F</string>
     <string name="month_day_saturday">S</string>
+
+    <string name="calendar_application_actions_header">Actions this month</string>
     
     <string-array name="application_status_array">
         <item>Pending</item>
