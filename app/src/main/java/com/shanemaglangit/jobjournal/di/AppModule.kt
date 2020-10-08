@@ -6,6 +6,7 @@ import com.shanemaglangit.jobjournal.data.AppDatabaseDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
@@ -15,7 +16,13 @@ import javax.inject.Singleton
 object HiltModule {
     @Provides
     @Singleton
-    fun provideDatabaseDao(@ApplicationContext context: Context) : AppDatabaseDao {
-        return AppDatabase.getInstance(context).appDatabaseDao()
+    fun provideDatabase(@ApplicationContext context: Context) : AppDatabase {
+        return AppDatabase.getInstance(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDatabaseDao(database: AppDatabase) : AppDatabaseDao {
+        return database.appDatabaseDao()
     }
 }

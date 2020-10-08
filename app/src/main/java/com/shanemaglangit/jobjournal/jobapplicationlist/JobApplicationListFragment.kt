@@ -55,19 +55,19 @@ class JobApplicationListFragment : Fragment() {
 
         binding.searchFilter.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                viewModel.filterItems(query)
+                jobApplicationListAdapter.submitList(viewModel.filterItems(query ?: ""))
                 return true
             }
 
             override fun onQueryTextChange(query: String?): Boolean {
-                if(query.isNullOrEmpty()) viewModel.filterItems(null)
+                if(query.isNullOrEmpty()) jobApplicationListAdapter.submitList(viewModel.filterItems())
                 return true
             }
         })
 
         // Attach an observer that updates the recycler view items
-        viewModel.filteredJobApplication.observe(viewLifecycleOwner, {
-            jobApplicationListAdapter.submitList(it)
+        viewModel.jobApplication.observe(viewLifecycleOwner, {
+            jobApplicationListAdapter.submitList(viewModel.filterItems())
         })
     }
 }
