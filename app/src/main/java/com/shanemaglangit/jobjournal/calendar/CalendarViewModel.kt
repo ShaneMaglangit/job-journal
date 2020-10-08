@@ -16,17 +16,14 @@ class CalendarViewModel @ViewModelInject constructor(private val databaseDao: Ap
         get() = _applicationActions
 
     init {
-        databaseDao.getApplicationActions().observeForever { applicationActionsLists ->
-            val tempList = mutableListOf<Pair<LocalDate, String>>()
+        val tempList = mutableListOf<Pair<LocalDate, String>>()
 
-            applicationActionsLists.forEach { applicationActions ->
-                tempList.addAll(applicationActions.getAllDatesWithAction())
-            }
-
-            tempList.sortBy { it.first }
-
-            _applicationActions.value = tempList
+        databaseDao.getApplicationActions().forEach { applicationActions ->
+            tempList.addAll(applicationActions.getAllDatesWithAction())
         }
+
+        tempList.sortBy { it.first }
+        _applicationActions.value = tempList
     }
 
     fun getActionCount(localDate: LocalDate) : Int {
