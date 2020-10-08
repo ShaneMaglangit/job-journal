@@ -12,6 +12,9 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.*
 
+/**
+ * Attach a click listener to a view that shows a date picker dialog on click
+ */
 fun View.showDatePickerDialogOnClick(dateSetListener: DatePickerDialog.OnDateSetListener) {
     val calendar = Calendar.getInstance()
     val currentYear = calendar.get(Calendar.YEAR)
@@ -21,11 +24,17 @@ fun View.showDatePickerDialogOnClick(dateSetListener: DatePickerDialog.OnDateSet
     this.setOnClickListener { datePickerDialog.show() }
 }
 
+/**
+ * Formats a local date into mm.dd.yy
+ */
 fun LocalDate.formatToString() : String {
     val date = Date.from(this.atStartOfDay().toInstant(ZoneOffset.UTC))
     return SimpleDateFormat("MM.dd.yy").format(date)
 }
 
+/**
+ * Formats a local date into the default date instance format from SimpleDateFormat
+ */
 fun LocalDate.formatToDateInstance() : String {
     val date = Date.from(this.atStartOfDay().toInstant(ZoneOffset.UTC))
     return SimpleDateFormat.getDateInstance().format(date)

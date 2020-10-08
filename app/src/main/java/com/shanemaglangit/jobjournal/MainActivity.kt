@@ -33,11 +33,6 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.bottomNav, navHost.navController)
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-
     /**
      * Hides the soft keyboard whenever a touch event is detected
      * outside of edit text views.

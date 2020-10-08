@@ -70,6 +70,9 @@ class JobApplicationListAdapter(private val itemClickListener: JobApplicationLis
             binding.buttonDelete.setOnClickListener { itemClickListener.onDeleteClick(item) }
         }
 
+        /**
+         * Toggles the visibility of the View
+         */
         private fun View.toggleVisibility() {
             this.visibility = if (this.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }

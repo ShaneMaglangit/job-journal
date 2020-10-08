@@ -20,6 +20,9 @@ class NewJobApplicationViewModel @ViewModelInject constructor(
     val jobApplication = MutableLiveData(savedStateHandle.get("jobApplication") ?: JobApplication())
     private val previousStatus = jobApplication.value!!.applicationStatus
 
+    /**
+     * Performs the necessary operations on the job application instances and writes it into the db
+     */
     fun saveJobApplication() = viewModelScope.launch {
         val oldItem: JobApplication? = savedStateHandle.get("jobApplication")
         val currentItem = jobApplication.value!!
@@ -33,6 +36,9 @@ class NewJobApplicationViewModel @ViewModelInject constructor(
         databaseDao.insert(currentItem)
     }
 
+    /**
+     * Used to set the application date based on the parameter
+     */
     fun setApplicationDate(date: LocalDate) {
         jobApplication.value?.applicationDate = date
     }

@@ -53,6 +53,7 @@ class JobApplicationListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        // Attach a listener that updates the items whenever a query is submitted or cleared
         binding.searchFilter.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 jobApplicationListAdapter.submitList(viewModel.filterItems(query ?: ""))

@@ -17,6 +17,9 @@ class JobApplicationListViewModel @ViewModelInject constructor(
     private var filter = ""
     val jobApplication: LiveData<List<JobApplication>> = databaseDao.getAllJobApplication()
 
+    /**
+     * Returns a filter list of the job application based on a filter/query parameter
+     */
     fun filterItems(filter: String = "") : List<JobApplication> {
         this.filter = filter
         return jobApplication.value!!.filter { e ->
@@ -26,6 +29,9 @@ class JobApplicationListViewModel @ViewModelInject constructor(
         }
     }
 
+    /**
+     * Deletes a job application from the database
+     */
     fun deleteJobApplication(jobApplication: JobApplication) {
         viewModelScope.launch { databaseDao.delete(jobApplication) }
     }

@@ -18,22 +18,32 @@ class CalendarViewModel @ViewModelInject constructor(private val databaseDao: Ap
         get() = _applicationActions
 
     init {
+        // Retrieve a list of all the application actions
         viewModelScope.launch {
             val tempList = mutableListOf<Pair<LocalDate, String>>()
 
+            // Converts the job application instance into a Pair<LocalDate, String>
             databaseDao.getApplicationActions().forEach { applicationActions ->
+                // Add all of the dates paired with its action into the tempList
                 tempList.addAll(applicationActions.getAllDatesWithAction())
             }
 
+            // Sort the tempList by the date
             tempList.sortBy { it.first }
             _applicationActions.value = tempList
         }
     }
 
+    /**
+     * Returns the count of actions done in a given date
+     */
     fun getActionCount(localDate: LocalDate) : Int {
         return _applicationActions.value?.count { it.first == localDate } ?: 0
     }
 
+    /**
+     * Returns a list of job actions that occured within the given month
+     */
     fun getApplicationActionsByMonth(calendarMonth: CalendarMonth) : List<Pair<LocalDate, String>> {
         val actions = applicationActions.value?.filter {
             it.first.year == calendarMonth.year && it.first.monthValue == calendarMonth.month

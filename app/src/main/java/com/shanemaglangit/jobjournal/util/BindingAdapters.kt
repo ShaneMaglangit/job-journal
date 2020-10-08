@@ -18,16 +18,25 @@ import java.time.LocalDate
 import java.time.ZoneOffset
 import java.util.*
 
+/**
+ * Binding adapter that sets the selected item of a spinner based on the ApplicationStatus passed
+ */
 @BindingAdapter("applicationStatus")
 fun setApplicationStatus(view: AppCompatSpinner, value: ApplicationStatus) {
     if(value.ordinal != view.selectedItemPosition) view.setSelection(value.ordinal)
 }
 
+/**
+ * Binding adapter that inverts back the spinner value to an ApplicationStatus
+ */
 @InverseBindingAdapter(attribute = "applicationStatus", event="applicationStatusAttrChanged")
 fun getApplicationStatus(view: AppCompatSpinner) : ApplicationStatus {
     return ApplicationStatus.valueOf(view.selectedItem.toString().toUpperCase())
 }
 
+/**
+ * Triggers the inverse binding adapter for ApplicationStatus whenever a new item is selected
+ */
 @BindingAdapter("applicationStatusAttrChanged")
 fun setApplicationStatusListener(view: AppCompatSpinner, attrChange: InverseBindingListener) {
     view.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
@@ -39,6 +48,9 @@ fun setApplicationStatusListener(view: AppCompatSpinner, attrChange: InverseBind
     }
 }
 
+/**
+ * Binding adapter that sets the selected marker color
+ */
 @BindingAdapter("selectedMarkerColor")
 fun setSelectedMarkerColor(view: RadioGroup, value: MarkerColor) {
     val selectedButton = when(value) {
@@ -54,6 +66,9 @@ fun setSelectedMarkerColor(view: RadioGroup, value: MarkerColor) {
     if(selectedButton != view.checkedRadioButtonId) view.check(selectedButton)
 }
 
+/**
+ * Binding adapter that inverts back the selected radio button to a MarkerColor
+ */
 @InverseBindingAdapter(attribute = "selectedMarkerColor", event = "selectedMarkerColorAttrChanged")
 fun getSelectedMarkerColor(view: RadioGroup) : MarkerColor {
     return when(view.checkedRadioButtonId) {
@@ -67,11 +82,17 @@ fun getSelectedMarkerColor(view: RadioGroup) : MarkerColor {
     }
 }
 
+/**
+ * Trigger the inverse binding adapter for selectedMarkerColor
+ */
 @BindingAdapter("selectedMarkerColorAttrChanged")
 fun setSelectedMarkerColorListener(view: RadioGroup, attrChange: InverseBindingListener) {
     view.setOnCheckedChangeListener { _, _ ->  attrChange.onChange() }
 }
 
+/**
+ * Binding adapter that converts a given local date into a text and set it to a TextInputEditText
+ */
 @BindingAdapter("android:text")
 fun setText(view: TextInputEditText, value: LocalDate?) {
     if(value != null) {

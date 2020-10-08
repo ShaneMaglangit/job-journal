@@ -69,7 +69,11 @@ class NewJobApplicationDialog : DialogFragment() {
         // Show a date picker dialog for the date edit text
         binding.editDate.showDatePickerDialogOnClick { _, year, month, day ->
             val calendar = Calendar.getInstance().apply { set(year, month, day) }
+
+            // Update the edit text view based on the selected date
             binding.editDate.setText(SimpleDateFormat.getDateInstance().format(calendar.time))
+
+            // Update the application date on the job application instance within the view model
             viewModel.setApplicationDate(LocalDateTime.ofInstant(calendar.toInstant(), ZoneOffset.UTC).toLocalDate())
         }
     }
