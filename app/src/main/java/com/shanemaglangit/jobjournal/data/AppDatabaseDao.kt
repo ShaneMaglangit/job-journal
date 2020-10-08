@@ -20,5 +20,5 @@ interface AppDatabaseDao {
     suspend fun getJobApplicationById(id: Long) : JobApplication
 
     @Query("SELECT company, applicationDate, statusChanges FROM job_application_table")
-    fun getApplicationActions() : List<ApplicationActions>
+    suspend fun getApplicationActions() : List<ApplicationActions>
 }

@@ -4,8 +4,10 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.kizitonwose.calendarview.model.CalendarMonth
 import com.shanemaglangit.jobjournal.data.AppDatabaseDao
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.time.LocalDate
 
@@ -16,14 +18,16 @@ class CalendarViewModel @ViewModelInject constructor(private val databaseDao: Ap
         get() = _applicationActions
 
     init {
-        val tempList = mutableListOf<Pair<LocalDate, String>>()
+        viewModelScope.launch {
+            val tempList = mutableListOf<Pair<LocalDate, String>>()
 
-        databaseDao.getApplicationActions().forEach { applicationActions ->
-            tempList.addAll(applicationActions.getAllDatesWithAction())
+            databaseDao.getApplicationActions().forEach { applicationActions ->
+                tempList.addAll(applicationActions.getAllDatesWithAction())
+            }
+
+            tempList.sortBy { it.first }
+            _applicationActions.value = tempList
         }
-
-        tempList.sortBy { it.first }
-        _applicationActions.value = tempList
     }
 
     fun getActionCount(localDate: LocalDate) : Int {
