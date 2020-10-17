@@ -17,7 +17,11 @@
         tools:layout="@layout/fragment_job_application_list" >
         <action
             android:id="@+id/openNewJobApplicationDialog"
-            app:destination="@id/newJobApplicationDialog" />
+            app:destination="@id/newJobApplicationDialog"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <dialog
         android:id="@+id/newJobApplicationDialog"
