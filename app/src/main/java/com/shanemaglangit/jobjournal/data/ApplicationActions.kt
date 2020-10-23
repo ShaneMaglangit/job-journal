@@ -10,6 +10,9 @@ data class ApplicationActions(
     private var applicationDate: LocalDate? = null,
     private var statusChanges: HashMap<LocalDateTime, String> = hashMapOf()
 ) {
+    /**
+     * Used to convert the application date and status changes into a single list of a date-to-action pair
+     */
     fun getAllDatesWithAction() : List<Pair<LocalDate, String>> {
         val datesWithActions = mutableListOf<Pair<LocalDate, String>>()
         if(applicationDate != null) datesWithActions.add(Pair(applicationDate!!, "Applied to $company"))
